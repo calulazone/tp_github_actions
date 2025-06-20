@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "playwright": "playwright test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "echo 'No build step defined'"
   },
   "author": "",
   "license": "ISC",

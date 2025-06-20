@@ -14,7 +14,7 @@ export default defineConfig({
 
   /* 🌐 Lance le serveur avant les tests */
   webServer: {
-    command: 'node server.js',
+    command: 'node src/index.js',
     port: 3000,
     timeout: 10 * 1000,
     reuseExistingServer: !process.env.CI,

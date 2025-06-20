@@ -1,19 +1,21 @@
-// @ts-check
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('sum works', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  // Get the input fields and button
+  const input1 = page.locator('#numbera');
+  const input2 = page.locator('#numberb');
+  const button = page.locator('#calculateButton');
+  const result = page.locator('#result');
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  // Input values
+  await input1.fill('5');
+  await input2.fill('10');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  // Click the button
+  await button.click();
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  // Check the result
+  await expect(result).toHaveText('15');
 });

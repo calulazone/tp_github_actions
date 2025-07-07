@@ -19,3 +19,22 @@ test('sum works', async ({ page }) => {
   // Check the result
   await expect(result).toHaveText('15');
 });
+
+test('form submission works', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+
+  const nameInput = page.locator('#name');
+  const surnameInput = page.locator('#surname');
+  const emailInput = page.locator('#email');
+  const submitButton = page.locator('#submitButton');
+
+  await nameInput.fill('John');
+  await surnameInput.fill('Doe');
+  const uniqueEmail = `john.doe+${Date.now()}@example.com`;
+  await emailInput.fill(uniqueEmail);
+
+  await submitButton.click();
+
+  await page.waitForTimeout(3000);
+  expect(page.url()).toBe('http://localhost:3000/users');
+});

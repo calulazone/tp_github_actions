@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Liste des utilisateurs</title>
+</head>
+<body>
+  <h1>Liste des utilisateurs</h1>
+  <ul id="usersList"></ul>
+
+  <script>
+    async function fetchUsers() {
+      try {
+        const response = await fetch('/usersdata');
+        if (!response.ok) throw new Error('Erreur HTTP ' + response.status);
+
+        const users = await response.json();
+        const ul = document.getElementById('usersList');
+        ul.innerHTML = '';
+
+        users.forEach(user => {
+          const li = document.createElement('li');
+          li.textContent = `${user.id} - ${user.surname} ${user.name} (${user.email})`;
+          ul.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        document.body.insertAdjacentHTML('beforeend', '<p>Erreur lors du chargement des utilisateurs.</p>');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', fetchUsers);
+  </script>
+</body>
+</html>

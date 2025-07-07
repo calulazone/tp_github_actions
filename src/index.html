@@ -3,14 +3,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <label for="numbera">Nombre a:</label>
-    <input type="number" id="numbera" placeholder="Nombre a">
-    <label for="numberb">Nombre b:</label>
-    <input type="number" id="numberb" placeholder="Nombre b">
-    <button id="calculateButton" onclick="calculateSum()">Calculer</button>
-    <p id="result"></p>
+    <div class="container">
+        <label for="numbera">Nombre a:</label>
+        <input type="number" id="numbera" placeholder="Nombre a">
+        <label for="numberb">Nombre b:</label>
+        <input type="number" id="numberb" placeholder="Nombre b">
+        <button id="calculateButton" onclick="calculateSum()">Calculer</button>
+        <p id="result"></p>
+
+        <form action="/users/create" method="POST">
+        <label for="surname">Nom :</label>
+        <input type="text" id="surname" name="surname" placeholder="Nom">
+
+        <label for="name">Prénom :</label>
+        <input type="text" id="name" name="name" placeholder="Prénom">
+
+        <label for="email">Email :</label>
+        <input type="text" id="email" name="email" placeholder="Email">
+
+        <button id="submitButton" type="submit">Envoyer</button>
+        </form>
+        <p id="formResult"></p>
+    </div>
 </body>
 </html>
 

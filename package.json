@@ -8,7 +8,8 @@
     "test": "jest",
     "playwright": "playwright test",
     "lint": "eslint .",
-    "build": "echo 'No build step defined'"
+    "build": "echo 'No build step defined'",
+    "dbinit": "node src/db/script.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "jest": "^30.0.2"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "mariadb": "^3.4.4"
   }
 }
